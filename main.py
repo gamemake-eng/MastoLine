@@ -12,34 +12,45 @@ timeline = mastodon.timeline_home(limit=100)
 posts = []
 for post in timeline:
     posts.append(post)
+
+
+def listposts():
+    timeline = mastodon.timeline_home(limit=100)
+    for i in range(len(posts)):
+        post = posts[i]
+        print(str(i)+" | "+post.account.acct)
+    print("type id# to view a post")
+
+def reply():
+    rid = input("what is the the reply id of the post?")
+    con = input("> ")
+    mastodon.status_post(con, in_reply_to_id=rid)
+
+def view(post):
+    print("----------------------------------")
+    print(post.account.acct)
+    print("----------------------------------")
+    print("Created " + str(post.created_at))
+    print("----------------------------------")
+    print(h.handle(post.content))
+    print("----------------------------------")
+    print(str(post.reblogs_count) + " Reblogs")
+    print(str(post.favourites_count) + " Likes")
+    print("reply id: " + str(post.id))
+    print("use command reply or r to reply to this post")
+
+
 while (True):
     user = mastodon.me()
     cmd = input(user.acct+" ~> ")
     
     if (cmd == "list") or (cmd == "l"):
-        timeline = mastodon.timeline_home(limit=100)
-        for i in range(len(posts)):
-            post = posts[i]
-            print(str(i)+" | "+post.account.acct)
-        print("type id# to view a post")
+        listposts()
     elif (cmd == "reply") or (cmd == "r"):
-        
-        rid = input("what is the the reply id of the post?")
-        con = input("> ")
-        mastodon.status_post(con, in_reply_to_id=rid)
+        reply()
     else:
         post = posts[int(cmd)]
-        print("----------------------------------")
-        print(post.account.acct)
-        print("----------------------------------")
-        print("Created " + str(post.created_at))
-        print("----------------------------------")
-        print(h.handle(post.content))
-        print("----------------------------------")
-        print(str(post.reblogs_count) + " Reblogs")
-        print(str(post.favourites_count) + " Likes")
-        print("reply id: " + str(post.id))
-        print("use command reply or r to reply to this post")
+        view(post)
 
         
 
