@@ -22,9 +22,13 @@ def listposts():
     print("type id# to view a post")
 
 def reply():
-    rid = input("what is the the reply id of the post?")
+    rid = input("what is the the reply id of the post? ")
     con = input("> ")
     mastodon.status_post(con, in_reply_to_id=rid)
+
+def post():
+    con = input("> ")
+    mastodon.toot(con)
 
 def view(post):
     print("----------------------------------")
@@ -48,6 +52,10 @@ while (True):
         listposts()
     elif (cmd == "reply") or (cmd == "r"):
         reply()
+    elif (cmd == "toot") or (cmd == "t"):
+        post()
+    elif (cmd == "exit") or (cmd == "e"):
+        exit()
     else:
         post = posts[int(cmd)]
         view(post)
