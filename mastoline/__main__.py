@@ -8,6 +8,8 @@ from rich.markdown import Markdown
 from .commandline import *
 from .commands import *
 
+# Hello there!
+
 ver = "0.0.1"
 codename = "Rat :rat:"
 art = r'''[bold magenta] __  __           _        _     _            
