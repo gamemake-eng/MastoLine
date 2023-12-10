@@ -83,6 +83,7 @@ print(r'''[bold magenta] __  __           _        _     _
 | |\/| |/ _` / __| __/ _ \| |   | | '_ \ / _ \
 | |  | | (_| \__ \ || (_) | |___| | | | |  __/
 |_|  |_|\__,_|___/\__\___/|_____|_|_| |_|\___|[/]''')
+print("[bold pink]Ver 0.0.1[/] 'Rat'")
 print("Welcome to [bold cyan]MastoLine![/] Mastodon on your terminal!")
 print("------------------------------------")
 while (True):
