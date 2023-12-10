@@ -5,6 +5,8 @@ import os.path
 import configparser
 from rich import print
 from rich.markdown import Markdown
+import commandline
+from commands import *
 
 ver = "0.0.1"
 codename = "Rat :mouse:"
@@ -43,7 +45,7 @@ posts = []
 for post in timeline:
     posts.append(post)
 
-
+'''
 def listposts():
     timeline = mastodon.timeline_home(limit=100)
     print("id | user")
@@ -86,6 +88,18 @@ def view(post):
     print(str(post.favourites_count) + " Likes")
     print("reply id: " + str(post.id))
     print("use command reply or r to reply to this post")
+'''
+
+list = List(posts)
+refresh = Refresh(mastodon, posts)
+reply = Reply(mastodon)
+toot = Toot(mastodon)
+view = View(posts)
+close = Quit("Are you sure?")
+hlp = Help()
+about = About(codename, ver, art)
+
+cmdline = commandline.CommandLine(mastodon.me().acct, "~>", [list, refresh, reply, toot, close, hlp, about], view)
 
 print("------------------------------------")
 print(art)
@@ -95,6 +109,7 @@ print("------------------------------------")
 
 def main():
     while (True):
+        '''
         user = mastodon.me()
         cmd = input(user.acct+" ~> ")
     
@@ -126,6 +141,10 @@ def main():
                 view(post)
             else:
                 print("It's not existing :star:")
+        '''
+
+        #new
+        cmdline.run()
 
 if __name__ == "__main__":
     main()
