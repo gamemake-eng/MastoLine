@@ -1,4 +1,4 @@
 *.secret
 *.ini
-*.egginfo/*
-__pycache__/*
+mastoline.egginfo/*
+mastoline/__pycache__/*

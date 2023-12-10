@@ -1,6 +1,29 @@
 # Mastoline
 
-## How to run
+Mastodon on your terminal! 
 
-`sh install.sh`
-`python3 main.py`
+Mastoline is a simple mastodon cilent that runs in the terminal.
+
+It has support for
+
+* Viewing statuses
+* Replying
+* Tooting
+* Rich text
+* + other things I am too lazy to mention
+
+## ToDo list!
+
+- [ ] Liking
+- [ ] Reposting
+- [ ] Full screen message editor
+- [ ] Media links
+- [ ] Notifications
+- [ ] Logo
+
+
+## How to install locally
+
+In the directory run `pip install -e .`
+
+### Pypi package coming soon!
