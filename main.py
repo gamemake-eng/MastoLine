@@ -2,7 +2,18 @@ from mastodon import Mastodon
 import html2text
 import getpass
 import os.path
+import configparser
 
+
+if os.path.isfile("settings.ini") == False:
+    f = open("settings.ini", "x")
+    f.close()
+    config = configparser.ConfigParser()
+    config.read("settings.ini")
+    config["DEFAULT"]["instance"] = "mstdn.social"
+    f = open("settings.ini", "w")
+    config.write(f)
+    f.close()
 mastodon = Mastodon(client_id = 'UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8', client_secret="QF73HqmXfJfKQVQYL6Ze_C-6qC67TKgpYlXX-HslOTI", api_base_url="https://mstdn.social")
 
 #first time use
@@ -60,6 +71,12 @@ while (True):
         reply()
     elif (cmd == "toot") or (cmd == "t"):
         post()
+    elif (cmd == "help") or (cmd == "h"):
+        print("NOTE: none of these commands have arguments")
+        print("list/l - lists the user's timeline")
+        print("view/v - shows a post's content from id")
+        print("reply/r - replies to a post from reply id")
+        print("toot/t - posts a status on mastodon")
     elif (cmd == "exit") or (cmd == "e"):
         exit()
     else:
