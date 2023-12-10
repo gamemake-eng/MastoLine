@@ -1,13 +1,19 @@
 from mastodon import Mastodon
 import html2text
 import getpass
+import os.path
 
 mastodon = Mastodon(client_id = 'UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8', client_secret="QF73HqmXfJfKQVQYL6Ze_C-6qC67TKgpYlXX-HslOTI", api_base_url="https://mstdn.social")
-url = mastodon.auth_request_url(client_id="UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8", redirect_uris='urn:ietf:wg:oauth:2.0:oob', scopes=['read', 'write', 'follow', 'push'])
-code = getpass.getpass(prompt="Type in your code (" +url+ "): ")
+
+#first time use
+if os.path.isfile("./user.secret") == False:
+    url = mastodon.auth_request_url(client_id="UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8", redirect_uris='urn:ietf:wg:oauth:2.0:oob', scopes=['read', 'write', 'follow', 'push'])
+    code = getpass.getpass(prompt="Type in your code (" +url+ "): ")
+    at = mastodon.log_in(code=code, to_file="user.secret")
+    
 h = html2text.HTML2Text()
-at = mastodon.log_in(code=code)
-mastodon = Mastodon(access_token=at, api_base_url="https://mstdn.social")
+
+mastodon = Mastodon(access_token="user.secret", api_base_url="https://mstdn.social")
 timeline = mastodon.timeline_home(limit=100)
 posts = []
 for post in timeline:
