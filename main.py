@@ -91,35 +91,40 @@ print(art)
 print("[bold pink]Ver "+ver+"[/] "+codename)
 print("Welcome to [bold cyan]MastoLine![/] Mastodon in your terminal!")
 print("------------------------------------")
-while (True):
-    user = mastodon.me()
-    cmd = input(user.acct+" ~> ")
+
+def main():
+    while (True):
+        user = mastodon.me()
+        cmd = input(user.acct+" ~> ")
     
-    if (cmd == "list") or (cmd == "l"):
-        listposts()
-    elif (cmd == "refresh") or (cmd == "f"):
-        refresh()
-    elif (cmd == "reply") or (cmd == "r"):
-        reply()
-    elif (cmd == "toot") or (cmd == "t"):
-        poststatus()
-    elif (cmd == "help") or (cmd == "h"):
-        print("NOTE: none of these commands have arguments")
-        print("[bold cyan]#[/] - view post of id")
-        print("[bold cyan]list/l[/] - lists the user's timeline with it's id next to it")
-        print("[bold cyan]refresh/f[/] - refreshes the timeline")
-        print("[bold cyan]reply/r[/] - replies to a post from reply id")
-        print("[bold cyan]toot/t[/] - posts a status on mastodon")
-        print("[bold cyan]exit/e[/] - exit out of MastoLine")
-        print("[bold cyan]about/a[/] - find into about Mastoline")
-    elif (cmd == "exit") or (cmd == "e"):
-        exit()
-    elif (cmd == "about") or (cmd == "a"):
-        print(art)
-        print("[bold pink]Ver "+ver+"[/] "+codename)
-    else:
-        if cmd.isnumeric() and int(cmd) < 40:
-            post = posts[int(cmd)]
-            view(post)
+        if (cmd == "list") or (cmd == "l"):
+            listposts()
+        elif (cmd == "refresh") or (cmd == "f"):
+            refresh()
+        elif (cmd == "reply") or (cmd == "r"):
+            reply()
+        elif (cmd == "toot") or (cmd == "t"):
+            poststatus()
+        elif (cmd == "help") or (cmd == "h"):
+            print("NOTE: none of these commands have arguments")
+            print("[bold cyan]#[/] - view post of id")
+            print("[bold cyan]list/l[/] - lists the user's timeline with it's id next to it")
+            print("[bold cyan]refresh/f[/] - refreshes the timeline")
+            print("[bold cyan]reply/r[/] - replies to a post from reply id")
+            print("[bold cyan]toot/t[/] - posts a status on mastodon")
+            print("[bold cyan]exit/e[/] - exit out of MastoLine")
+            print("[bold cyan]about/a[/] - find into about Mastoline")
+        elif (cmd == "exit") or (cmd == "e"):
+            exit()
+        elif (cmd == "about") or (cmd == "a"):
+            print(art)
+            print("[bold pink]Ver "+ver+"[/] "+codename)
         else:
-            print("It's not existing :star:")
+            if cmd.isnumeric() and int(cmd) < 40:
+                post = posts[int(cmd)]
+                view(post)
+            else:
+                print("It's not existing :star:")
+
+if __name__ == "__main__":
+    main()
