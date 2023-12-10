@@ -40,6 +40,21 @@ class Reply:
         else:
             print("[red]that's not a number![/red]")
 
+class Like:
+    def __init__(self, mastodon):
+        self.m = mastodon
+
+    def run(self):
+        mastodon = self.m
+        rid = input("what is the the reply id of the post? ")
+        if rid.isnumeric():
+            conf = input("Are you sure? (y/n) ")
+            if conf[0] == "y":
+                mastodon.status_favourite(int(rid))
+            else:
+                print("ok")
+        else:
+            print("[red]that's not a number![/red]")
 
 class Toot:
     def __init__(self, mastodon):
