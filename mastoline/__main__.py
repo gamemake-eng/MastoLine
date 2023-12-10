@@ -45,51 +45,6 @@ posts = []
 for post in timeline:
     posts.append(post)
 
-'''
-def listposts():
-    timeline = mastodon.timeline_home(limit=100)
-    print("id | user")
-    for i in range(len(posts)):
-        post = posts[i]
-        print(str(i)+" | "+post.account.acct)
-    print("type the id # to view a post")
-
-def refresh():
-    timeline = mastodon.timeline_home(limit=100)
-    posts = []
-    for post in timeline:
-        posts.append(post)
-
-
-def reply():
-    rid = input("what is the the reply id of the post? ")
-    if rid.isnumeric():
-        con = input("> ")
-        mastodon.status_post(con, in_reply_to_id=rid)
-    else:
-        print("[red]that's not a number![/red]")
-
-def poststatus():
-    con = input("> ")
-    mastodon.toot(con)
-
-def view(post):
-    #console = Console()
-    md = Markdown(h.handle(post.content))
-    print("----------------------------------")
-    print(post.account.acct)
-    print("----------------------------------")
-    print("Created " + str(post.created_at))
-    print("----------------------------------")
-    #console.print(md)
-    print(md)
-    print("----------------------------------")
-    print(str(post.reblogs_count) + " Reblogs")
-    print(str(post.favourites_count) + " Likes")
-    print("reply id: " + str(post.id))
-    print("use command reply or r to reply to this post")
-'''
-
 list = List(posts)
 refresh = Refresh(mastodon, posts)
 reply = Reply(mastodon)
@@ -109,41 +64,6 @@ print("------------------------------------")
 
 def main():
     while (True):
-        '''
-        user = mastodon.me()
-        cmd = input(user.acct+" ~> ")
-    
-        if (cmd == "list") or (cmd == "l"):
-            listposts()
-        elif (cmd == "refresh") or (cmd == "f"):
-            refresh()
-        elif (cmd == "reply") or (cmd == "r"):
-            reply()
-        elif (cmd == "toot") or (cmd == "t"):
-            poststatus()
-        elif (cmd == "help") or (cmd == "h"):
-            print("NOTE: none of these commands have arguments")
-            print("[bold cyan]#[/] - view post of id")
-            print("[bold cyan]list/l[/] - lists the user's timeline with it's id next to it")
-            print("[bold cyan]refresh/f[/] - refreshes the timeline")
-            print("[bold cyan]reply/r[/] - replies to a post from reply id")
-            print("[bold cyan]toot/t[/] - posts a status on mastodon")
-            print("[bold cyan]exit/e[/] - exit out of MastoLine")
-            print("[bold cyan]about/a[/] - find into about Mastoline")
-        elif (cmd == "exit") or (cmd == "e"):
-            exit()
-        elif (cmd == "about") or (cmd == "a"):
-            print(art)
-            print("[bold pink]Ver "+ver+"[/] "+codename)
-        else:
-            if cmd.isnumeric() and int(cmd) < 40:
-                post = posts[int(cmd)]
-                view(post)
-            else:
-                print("It's not existing :star:")
-        '''
-
-        #new
         cmdline.run()
 
 if __name__ == "__main__":
