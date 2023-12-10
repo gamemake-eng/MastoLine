@@ -122,6 +122,8 @@ class Help:
         print("[bold cyan]list[/] - lists the user's timeline with it's id next to it")
         print("[bold cyan]refresh[/] - refreshes the timeline")
         print("[bold cyan]reply[/] - replies to a post from reply id")
+        print("[bold cyan]like[/] - likes a post from reply id")
+        print("[bold cyan]reblog[/] - reblogs a status from it's reply id")
         print("[bold cyan]toot[/] - posts a status on mastodon")
         print("[bold cyan]quit[/] - exit out of MastoLine")
         print("[bold cyan]about[/] - find into about Mastoline")
