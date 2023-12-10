@@ -6,6 +6,15 @@ import configparser
 from rich import print
 from rich.markdown import Markdown
 
+ver = "0.0.1"
+codename = "Rat :mouse:"
+art = r'''[bold magenta] __  __           _        _     _            
+|  \/  | __ _ ___| |_ ___ | |   (_)_ __   ___ 
+| |\/| |/ _` / __| __/ _ \| |   | | '_ \ / _ \
+| |  | | (_| \__ \ || (_) | |___| | | | |  __/
+|_|  |_|\__,_|___/\__\___/|_____|_|_| |_|\___|[/]'''
+
+
 if os.path.isfile("settings.ini") == False:
     print("setting up program files")
     f = open("settings.ini", "x")
@@ -57,7 +66,7 @@ def reply():
     else:
         print("[red]that's not a number![/red]")
 
-def post():
+def poststatus():
     con = input("> ")
     mastodon.toot(con)
 
@@ -78,13 +87,9 @@ def view(post):
     print("use command reply or r to reply to this post")
 
 print("------------------------------------")
-print(r'''[bold magenta] __  __           _        _     _            
-|  \/  | __ _ ___| |_ ___ | |   (_)_ __   ___ 
-| |\/| |/ _` / __| __/ _ \| |   | | '_ \ / _ \
-| |  | | (_| \__ \ || (_) | |___| | | | |  __/
-|_|  |_|\__,_|___/\__\___/|_____|_|_| |_|\___|[/]''')
-print("[bold pink]Ver 0.0.1[/] 'Rat'")
-print("Welcome to [bold cyan]MastoLine![/] Mastodon on your terminal!")
+print(art)
+print("[bold pink]Ver "+ver+"[/] "+codename)
+print("Welcome to [bold cyan]MastoLine![/] Mastodon in your terminal!")
 print("------------------------------------")
 while (True):
     user = mastodon.me()
@@ -97,7 +102,7 @@ while (True):
     elif (cmd == "reply") or (cmd == "r"):
         reply()
     elif (cmd == "toot") or (cmd == "t"):
-        post()
+        poststatus()
     elif (cmd == "help") or (cmd == "h"):
         print("NOTE: none of these commands have arguments")
         print("[bold cyan]#[/] - view post of id")
@@ -106,8 +111,12 @@ while (True):
         print("[bold cyan]reply/r[/] - replies to a post from reply id")
         print("[bold cyan]toot/t[/] - posts a status on mastodon")
         print("[bold cyan]exit/e[/] - exit out of MastoLine")
+        print("[bold cyan]about/a[/] - find into about Mastoline")
     elif (cmd == "exit") or (cmd == "e"):
         exit()
+    elif (cmd == "about") or (cmd == "a"):
+        print(art)
+        print("[bold pink]Ver "+ver+"[/] "+codename)
     else:
         if cmd.isnumeric() and int(cmd) < 40:
             post = posts[int(cmd)]
