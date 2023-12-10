@@ -3,8 +3,9 @@ import html2text
 import getpass
 import os.path
 import configparser
-from connect.utils.terminal.markdown import render
-
+from rich import print
+#from rich.console import Console
+from rich.markdown import Markdown
 
 if os.path.isfile("settings.ini") == False:
     print("setting up program files")
@@ -49,20 +50,26 @@ def refresh():
 
 def reply():
     rid = input("what is the the reply id of the post? ")
-    con = input("> ")
-    mastodon.status_post(con, in_reply_to_id=rid)
+    if rid.isnumeric():
+        con = input("> ")
+        mastodon.status_post(con, in_reply_to_id=rid)
+    else:
+        print("that's not a number!")
 
 def post():
     con = input("> ")
     mastodon.toot(con)
 
 def view(post):
+    #console = Console()
+    md = Markdown(h.handle(post.content))
     print("----------------------------------")
     print(post.account.acct)
     print("----------------------------------")
     print("Created " + str(post.created_at))
     print("----------------------------------")
-    print(render(h.handle(post.content)))
+    #console.print(md)
+    print(md)
     print("----------------------------------")
     print(str(post.reblogs_count) + " Reblogs")
     print(str(post.favourites_count) + " Likes")
@@ -94,8 +101,11 @@ while (True):
     elif (cmd == "exit") or (cmd == "e"):
         exit()
     else:
-        post = posts[int(cmd)]
-        view(post)
+        if cmd.isnumeric() and int(cmd) < 40:
+            post = posts[int(cmd)]
+            view(post)
+        else:
+            print("It's not existing :star:")
 
         
 
