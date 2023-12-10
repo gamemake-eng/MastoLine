@@ -1,10 +1,10 @@
-# Mastoline
+# MastoLine
 
 ![logo](img/logo.png)
 
 Mastodon on your terminal! 
 
-Mastoline is a simple mastodon cilent that runs in the terminal.
+MastoLine is a simple mastodon cilent that runs in the terminal.
 
 It has support for
 
