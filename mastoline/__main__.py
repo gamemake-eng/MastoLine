@@ -9,7 +9,7 @@ from .commandline import *
 from .commands import *
 
 ver = "0.0.1"
-codename = "Rat :mouse:"
+codename = "Rat :rat:"
 art = r'''[bold magenta] __  __           _        _     _            
 |  \/  | __ _ ___| |_ ___ | |   (_)_ __   ___ 
 | |\/| |/ _` / __| __/ _ \| |   | | '_ \ / _ \
