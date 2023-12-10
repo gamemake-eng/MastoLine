@@ -4,7 +4,6 @@ import getpass
 import os.path
 import configparser
 from rich import print
-#from rich.console import Console
 from rich.markdown import Markdown
 
 if os.path.isfile("settings.ini") == False:
@@ -26,7 +25,9 @@ if os.path.isfile("./user.secret") == False:
     at = mastodon.log_in(code=code, to_file="user.secret")
     
 h = html2text.HTML2Text()
-print("logging on")
+
+print("[bold blue]Logging On[/bold blue]")
+
 mastodon = Mastodon(access_token="user.secret", api_base_url="https://mstdn.social")
 timeline = mastodon.timeline_home(limit=100)
 posts = []
@@ -54,7 +55,7 @@ def reply():
         con = input("> ")
         mastodon.status_post(con, in_reply_to_id=rid)
     else:
-        print("that's not a number!")
+        print("[red]that's not a number![/red]")
 
 def post():
     con = input("> ")
@@ -77,7 +78,12 @@ def view(post):
     print("use command reply or r to reply to this post")
 
 print("------------------------------------")
-print("Welcome to mastoline! Mastodon on your terminal!")
+print(r'''[bold magenta] __  __           _        _     _            
+|  \/  | __ _ ___| |_ ___ | |   (_)_ __   ___ 
+| |\/| |/ _` / __| __/ _ \| |   | | '_ \ / _ \
+| |  | | (_| \__ \ || (_) | |___| | | | |  __/
+|_|  |_|\__,_|___/\__\___/|_____|_|_| |_|\___|[/]''')
+print("Welcome to [bold cyan]MastoLine![/] Mastodon on your terminal!")
 print("------------------------------------")
 while (True):
     user = mastodon.me()
@@ -93,11 +99,12 @@ while (True):
         post()
     elif (cmd == "help") or (cmd == "h"):
         print("NOTE: none of these commands have arguments")
-        print("# - view post of id")
-        print("list/l - lists the user's timeline with it's id next to it")
-        print("refresh/f - refreshes the timeline")
-        print("reply/r - replies to a post from reply id")
-        print("toot/t - posts a status on mastodon")
+        print("[bold cyan]#[/] - view post of id")
+        print("[bold cyan]list/l[/] - lists the user's timeline with it's id next to it")
+        print("[bold cyan]refresh/f[/] - refreshes the timeline")
+        print("[bold cyan]reply/r[/] - replies to a post from reply id")
+        print("[bold cyan]toot/t[/] - posts a status on mastodon")
+        print("[bold cyan]exit/e[/] - exit out of MastoLine")
     elif (cmd == "exit") or (cmd == "e"):
         exit()
     else:
@@ -106,7 +113,3 @@ while (True):
             view(post)
         else:
             print("It's not existing :star:")
-
-        
-
-
