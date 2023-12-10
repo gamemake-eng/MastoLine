@@ -15,12 +15,12 @@ art = r'''[bold magenta] __  __           _        _     _
 |_|  |_|\__,_|___/\__\___/|_____|_|_| |_|\___|[/]'''
 
 
-if os.path.isfile("settings.ini") == False:
+if os.path.isfile("../settings.ini") == False:
     print("setting up program files")
-    f = open("settings.ini", "x")
+    f = open("../settings.ini", "x")
     f.close()
     config = configparser.ConfigParser()
-    config.read("settings.ini")
+    config.read("../settings.ini")
     config["DEFAULT"]["instance"] = "mstdn.social"
     f = open("settings.ini", "w")
     config.write(f)
@@ -28,16 +28,16 @@ if os.path.isfile("settings.ini") == False:
 mastodon = Mastodon(client_id = 'UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8', client_secret="QF73HqmXfJfKQVQYL6Ze_C-6qC67TKgpYlXX-HslOTI", api_base_url="https://mstdn.social")
 
 #first time use
-if os.path.isfile("./user.secret") == False:
+if os.path.isfile("../user.secret") == False:
     url = mastodon.auth_request_url(client_id="UOinO8Y9pqA4JmlF_WMz4kwB8QYWKqapLCV3gNB16h8", redirect_uris='urn:ietf:wg:oauth:2.0:oob', scopes=['read', 'write', 'follow', 'push'])
     code = getpass.getpass(prompt="Type in your code (" +url+ "): ")
-    at = mastodon.log_in(code=code, to_file="user.secret")
+    at = mastodon.log_in(code=code, to_file="../user.secret")
     
 h = html2text.HTML2Text()
 
 print("[bold blue]Logging On[/bold blue]")
 
-mastodon = Mastodon(access_token="user.secret", api_base_url="https://mstdn.social")
+mastodon = Mastodon(access_token="../user.secret", api_base_url="https://mstdn.social")
 timeline = mastodon.timeline_home(limit=100)
 posts = []
 for post in timeline:
