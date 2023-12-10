@@ -19,6 +19,7 @@ It has support for
 - [ ] Full screen message editor
 - [ ] Media links
 - [ ] Notifications
+- [ ] Support for other instaces (that are not mstdn.social)
 - [ ] Logo
 
 
