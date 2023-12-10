@@ -5,8 +5,8 @@ import os.path
 import configparser
 from rich import print
 from rich.markdown import Markdown
-import commandline
-from commands import *
+from .commandline import *
+from .commands import *
 
 ver = "0.0.1"
 codename = "Rat :mouse:"
@@ -99,7 +99,7 @@ close = Quit("Are you sure?")
 hlp = Help()
 about = About(codename, ver, art)
 
-cmdline = commandline.CommandLine(mastodon.me().acct, "~>", [list, refresh, reply, toot, close, hlp, about], view)
+cmdline = CommandLine(mastodon.me().acct, "~>", [list, refresh, reply, toot, close, hlp, about], view)
 
 print("------------------------------------")
 print(art)
