@@ -10,7 +10,7 @@ It has support for
 * Replying
 * Tooting
 * Rich text
-* + other things I am too lazy to mention
+* [+] other things I am too lazy to mention
 
 ## ToDo list!
 
