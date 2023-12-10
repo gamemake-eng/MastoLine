@@ -21,6 +21,8 @@ It has support for
 - [ ] Full screen message editor
 - [ ] Media links
 - [ ] Notifications
+- [ ] Viewing other user's profiles
+- [ ] Search feature
 - [ ] Support for other instaces (that are not mstdn.social)
 - [ ] Make an actually good logo
 
