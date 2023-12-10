@@ -1,2 +1,4 @@
 *.secret
 *.ini
+*.egginfo/*
+__pycache__/*
