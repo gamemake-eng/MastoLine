@@ -1,5 +1,7 @@
 # Mastoline
 
+![logo](img/logo.png)
+
 Mastodon on your terminal! 
 
 Mastoline is a simple mastodon cilent that runs in the terminal.
@@ -20,7 +22,7 @@ It has support for
 - [ ] Media links
 - [ ] Notifications
 - [ ] Support for other instaces (that are not mstdn.social)
-- [ ] Logo
+- [ ] Make an actually good logo
 
 
 ## How to install locally
