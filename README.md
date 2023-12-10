@@ -17,7 +17,7 @@ It has support for
 ## ToDo list!
 
 - [X] Liking
-- [ ] Reposting
+- [X] Reposting
 - [ ] Full screen message editor
 - [ ] Media links
 - [ ] Notifications

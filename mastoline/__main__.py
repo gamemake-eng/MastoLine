@@ -56,8 +56,9 @@ close = Quit("Are you sure?")
 hlp = Help()
 about = About(codename, ver, art)
 like = Like(mastodon)
+reblog = Reblog(mastodon)
 
-cmdline = CommandLine(mastodon.me().acct, "~>", [list, refresh, reply, like, toot, close, hlp, about], view)
+cmdline = CommandLine(mastodon.me().acct, "~>", [list, refresh, reply, like, reblog, toot, close, hlp, about], view)
 
 print("------------------------------------")
 print(art)
