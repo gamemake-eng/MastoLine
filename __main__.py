@@ -46,10 +46,11 @@ for post in timeline:
 
 def listposts():
     timeline = mastodon.timeline_home(limit=100)
+    print("id | user")
     for i in range(len(posts)):
         post = posts[i]
         print(str(i)+" | "+post.account.acct)
-    print("type id# to view a post")
+    print("type the id # to view a post")
 
 def refresh():
     timeline = mastodon.timeline_home(limit=100)
