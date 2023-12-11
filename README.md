@@ -19,6 +19,7 @@ It has support for
 - [X] Liking
 - [X] Reposting
 - [ ] Full screen message editor
+- [ ] Command params
 - [ ] Media links
 - [ ] Notifications
 - [ ] Viewing other user's profiles
