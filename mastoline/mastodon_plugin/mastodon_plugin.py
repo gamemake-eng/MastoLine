@@ -5,7 +5,7 @@ import os.path
 import configparser
 from rich import print
 from rich.markdown import Markdown
-from commands import *
+from .commands import *
 import os
 
 file_path = os.path.dirname(__file__)+"/../"

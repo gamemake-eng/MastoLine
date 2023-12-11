@@ -37,9 +37,9 @@ if os.path.isfile(file_path+"../settings.ini") == False:
     config.write(f)
     f.close()
 
-plugin = Plugin()
+plugin = Plugin(codename, ver, art)
 
-cmdline = CommandLine("you", "~>", [list, refresh, reply, like, reblog, toot, close, hlp, about], view)
+cmdline = CommandLine("you", "~>", plugin.commands, plugin.view)
 
 print("------------------------------------")
 print(art)
