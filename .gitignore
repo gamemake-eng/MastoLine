@@ -2,7 +2,7 @@
 *.ini
 *.pyc
 mastoline.egg-info/*
-mastoline/__pycache__/*
+*/__pycache__/*
 *.egg
 build/*
 dist/*
