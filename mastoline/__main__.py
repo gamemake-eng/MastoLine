@@ -13,11 +13,7 @@ import sys
 file_path = os.path.dirname(__file__)+"/"
 print(file_path)
 
-
-
-
-
-ver = "0.0.1"
+ver = "0.0.3"
 codename = "Rat :rat:"
 art = r'''[bold magenta] __  __           _        _     _            
 |  \/  | __ _ ___| |_ ___ | |   (_)_ __   ___ 
@@ -39,7 +35,7 @@ if os.path.isfile(file_path+"../settings.ini") == False:
 
 plugin = Plugin(codename, ver, art)
 
-cmdline = CommandLine("you", "~>", plugin.commands, plugin.view)
+cmdline = CommandLine(plugin.name, "~>", plugin.commands, plugin.view)
 
 print("------------------------------------")
 print(art)

@@ -9,7 +9,6 @@ from .commands import *
 import os
 
 file_path = os.path.dirname(__file__)+"/../"
-print(file_path)
 
 class Plugin:
     def __init__(self, codename, ver, art):
@@ -57,4 +56,5 @@ class Plugin:
 
         self.commands = [list, refresh, reply, like, reblog, toot, close, hlp, about]
         self.view = view
+        self.name = mastodon.me().acct
 
