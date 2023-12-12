@@ -33,12 +33,20 @@ class Reply:
         
     def run(self, prams = []):
         mastodon = self.m
-        rid = input("what is the the reply id of the post? ")
-        if rid.isnumeric():
-            con = input("> ")
-            mastodon.status_post(con, in_reply_to_id=rid)
+        try:
+            rid = prams[1]
+        except:
+            print("[red]Did not provide id[/]")
+            print("Type help to view all of the commands")
         else:
-            print("[red]that's not a number![/red]")
+            if rid.isnumeric():
+                con = input("> ")
+                try:
+                    mastodon.status_post(con, in_reply_to_id=rid)
+                except:
+                    print("[red]Post not found[/]")
+            else:
+                print("[red]that's not a number![/red]")
 
 class Like:
     def __init__(self, mastodon):
@@ -46,15 +54,23 @@ class Like:
 
     def run(self, prams = []):
         mastodon = self.m
-        rid = input("what is the the reply id of the post? ")
-        if rid.isnumeric():
-            conf = input("Are you sure? (y/n) ")
-            if conf[0] == "y":
-                mastodon.status_favourite(int(rid))
-            else:
-                print("ok")
+        try:
+            rid = prams[1]
+        except:
+            print("[red]Did not provide id[/]")
+            print("Type help to view all of the commands")
         else:
-            print("[red]that's not a number![/red]")
+            if rid.isnumeric():
+                conf = input("Are you sure? (y/n) ")
+                if conf[0] == "y":
+                    try:
+                        mastodon.status_favourite(int(rid))
+                    except:
+                        print("[red]Post not found[/]")
+                else:
+                    print("ok")
+            else:
+                print("[red]that's not a number![/red]")
 
 class Reblog:
     def __init__(self, mastodon):
@@ -62,15 +78,24 @@ class Reblog:
 
     def run(self, prams = []):
         mastodon = self.m
-        rid = input("what is the the reply id of the post? ")
-        if rid.isnumeric():
-            conf = input("Are you sure? (y/n) ")
-            if conf[0] == "y":
-                mastodon.status_reblog(int(rid))
-            else:
-                print("ok")
+        try:
+            rid = prams[1]
+        except:
+            print("[red]Did not provide id[/]")
+            print("Type help to view all of the commands")
         else:
-            print("[red]that's not a number![/red]")
+            if rid.isnumeric():
+                conf = input("Are you sure? (y/n) ")
+                if conf[0] == "y":
+                    try:
+                        mastodon.status_reblog(int(rid))
+                    except:
+                        print("[red]Post not found[/]")
+                else:
+                    print("ok")
+            else:
+                print("[red]that's not a number![/red]")    
+        
 
 class Toot:
     def __init__(self, mastodon):
@@ -105,10 +130,14 @@ class User:
             print(str(following) + " Following")
             print(str(followers) + " Followers")
             print("user id: " + str(id))
-            print("use command follow to follow to this user")
+            print("use command follow to follow to this user (not yet implmented)")
 
         try:
             con = prams[1]
+        except: 
+            print("[red]No user specified[/]")
+            print("Type help to view all of the commands")
+        else:
             if con.lower() == "me":
                 user = mastodon.me()
                 display(user.acct, user.url, user.id, user.following_count, user.followers_count, user.statuses_count, user.note, user.bot)
@@ -120,9 +149,7 @@ class User:
                     display(user.acct, user.url, user.id, user.following_count, user.followers_count, user.statuses_count, user.note, user.bot)
 
                 except:
-                    print("User not found 😑")
-        except: 
-            print("No user specified")
+                    print("[red]User not found[/] 😑")
 
         
 
@@ -166,13 +193,13 @@ class Help:
         print("[bold cyan]#[/] - view post of id")
         print("[bold cyan]list[/] - lists the user's timeline with it's id next to it")
         print("[bold cyan]refresh[/] - refreshes the timeline")
-        print("[bold cyan]reply[/] - replies to a post from reply id")
-        print("[bold cyan]like[/] - likes a post from reply id")
-        print("[bold cyan]reblog[/] - reblogs a status from it's reply id")
+        print("[bold cyan]reply (id)[/] - replies to a post from reply id")
+        print("[bold cyan]like (id)[/] - likes a post from reply id")
+        print("[bold cyan]reblog (id)[/] - reblogs a status from it's reply id")
         print("[bold cyan]toot[/] - posts a status on mastodon")
-        print("[bold cyan]user[/] - view a user on mastodon")
+        print("[bold cyan]user (username)[/] - view a user on mastodon")
         print("[bold cyan]quit[/] - exit out of MastoLine")
-        print("[bold cyan]about[/] - find into about Mastoline")
+        print("[bold cyan]about[/] - find info about Mastoline")
 
 class About:
     def __init__(self, codename, ver, art):
