@@ -14,6 +14,8 @@ It has support for
 * Rich text
 * [+] other things I am too lazy to mention
 
+NOTE: I know that [toot](https://github.com/ihabunek/toot) is a thing and is 100x better than this. Although this makes me less motivated to work on the project, I will still try to maintain this repo. I guess you can call this a more "Lightweight" version for people with windows computers or who just like typing out stuff. I could also add other things like allowing access to other frediverse platforms (which I am actually thinking about at the moment). I will basicly keep working on this until I end up ghosting the whole thing. If that happens, it would be nice if you forked it and turned it into somthing bigger!  
+
 ## ToDo list!
 
 - [X] Liking
