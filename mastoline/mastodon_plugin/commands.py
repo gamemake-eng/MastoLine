@@ -206,6 +206,6 @@ class About:
         self.c = codename
         self.v = ver
         self.a = art
-    def run(self):
+    def run(self, prams=[]):
         print(self.a)
         print("[bold pink]Ver "+self.v+"[/] "+self.c)
