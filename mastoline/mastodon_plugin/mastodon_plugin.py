@@ -49,13 +49,14 @@ class Plugin:
         toot = Toot(mastodon)
         view = View(posts)
         user = User(mastodon)
+        follow = Follow(mastodon)
         close = Quit("Are you sure?")
         hlp = Help()
         about = About(codename, ver, art)
         like = Like(mastodon)
         reblog = Reblog(mastodon)
 
-        self.commands = [list, refresh, reply, like, reblog, toot, close, hlp, about, user]
+        self.commands = [list, refresh, reply, like, reblog, toot, close, hlp, about, user, follow]
         self.view = view
         self.name = mastodon.me().acct
 

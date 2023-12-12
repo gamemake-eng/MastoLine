@@ -1,3 +1,4 @@
+from pyclbr import Class
 from rich import print
 from rich.markdown import Markdown
 import html2text
@@ -112,7 +113,6 @@ class User:
     def run(self, prams = []):
         mastodon = self.m
         
-
         def display(name, url, id, following, followers, posts, bio, bot):
             md = Markdown(h.handle(bio))
             if bot:
@@ -130,7 +130,7 @@ class User:
             print(str(following) + " Following")
             print(str(followers) + " Followers")
             print("user id: " + str(id))
-            print("use command follow to follow to this user (not yet implmented)")
+            print("use command follow (id) to follow to this user (not yet implmented)")
 
         try:
             con = prams[1]
@@ -151,7 +151,20 @@ class User:
                 except:
                     print("[red]User not found[/] 😑")
 
-        
+class Follow:
+    def __init__(self,mastodon):
+        self.m = mastodon
+    def run(self, prams=[]):
+        mastodon = self.m
+        try:
+            userid = mastodon.account_lookup(prams[1]).id
+            mastodon.account_follow(userid)
+            user = mastodon.account(userid)
+            print("[bold green]Followed " + user.acct + "[/]")
+
+        except:
+            print("[red]User not found[/] 😑")
+
 
 class View:
     def __init__(self, posts):
