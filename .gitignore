@@ -1,7 +1,9 @@
 *.secret
 *.ini
+*.pyc
 mastoline.egg-info/*
 mastoline/__pycache__/*
 *.egg
 build/*
 dist/*
+/.vscode
