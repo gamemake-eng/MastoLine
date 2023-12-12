@@ -19,10 +19,10 @@ It has support for
 - [X] Liking
 - [X] Reposting
 - [ ] Full screen message editor
-- [ ] Command params
+- [X] Command params
 - [ ] Media links
 - [ ] Notifications
-- [ ] Viewing other user's profiles
+- [X] Viewing other user's profiles
 - [ ] Search feature
 - [ ] Support for other instaces (that are not mstdn.social)
 - [ ] Make an actually good logo
