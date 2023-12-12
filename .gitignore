@@ -3,6 +3,7 @@
 *.pyc
 mastoline.egg-info/*
 mastoline/mastodon_plugin/__pycache__/*
+mastoline/__pycache__/*
 *.egg
 build/*
 dist/*
