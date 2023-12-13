@@ -130,7 +130,7 @@ class User:
             print(str(following) + " Following")
             print(str(followers) + " Followers")
             print("user id: " + str(id))
-            print("use command follow (id) to follow to this user")
+            print("use command follow (username) to follow to this user")
 
         try:
             con = prams[1]
@@ -211,6 +211,7 @@ class Help:
         print("[bold cyan]reblog (id)[/] - reblogs a status from it's reply id")
         print("[bold cyan]toot[/] - posts a status on mastodon")
         print("[bold cyan]user (username)[/] - view a user on mastodon")
+        print("[bold cyan]follow (username)[/] - follow a user on mastodon")
         print("[bold cyan]quit[/] - exit out of MastoLine")
         print("[bold cyan]about[/] - find info about Mastoline")
 
