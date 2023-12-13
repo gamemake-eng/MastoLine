@@ -130,7 +130,7 @@ class User:
             print(str(following) + " Following")
             print(str(followers) + " Followers")
             print("user id: " + str(id))
-            print("use command follow (id) to follow to this user (not yet implmented)")
+            print("use command follow (id) to follow to this user")
 
         try:
             con = prams[1]
