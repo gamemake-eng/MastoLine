@@ -156,14 +156,39 @@ class Follow:
         self.m = mastodon
     def run(self, prams=[]):
         mastodon = self.m
-        try:
-            userid = mastodon.account_lookup(prams[1]).id
-            mastodon.account_follow(userid)
-            user = mastodon.account(userid)
-            print("[bold green]Followed " + user.acct + "[/]")
+        def display(name, following, followers):
+            
+            print("\n----------------------------------")
+            print("[bold cyan]" + name + "'s[/] Followers\n")
+            print("----------------------------------")
+            for i in followers:
+                print("[bold green]" + i.acct + "[/]")
+            print("----------------------------------")
+            
+            print("use command user (username) to view these users")
 
-        except:
-            print("[red]User not found[/] 😑")
+        if len(prams) > 2:
+            if prams[2] == "view":
+                
+                try:
+                    userid = mastodon.account_lookup(prams[1]).id
+                    user = mastodon.account(userid)
+                    followers = mastodon.account_followers(userid)
+                    following = mastodon.account_followers(userid)
+                    display(user.username, following, followers)
+                except:
+                    print("[red]User not found[/] 😑")
+                
+                
+        else:
+            try:
+                userid = mastodon.account_lookup(prams[1]).id
+                mastodon.account_follow(userid)
+                user = mastodon.account(userid)
+                print("[bold green]Followed " + user.acct + "[/]")
+
+            except:
+                print("[red]User not found[/] 😑")
 
 
 class View:
@@ -211,7 +236,7 @@ class Help:
         print("[bold cyan]reblog (id)[/] - reblogs a status from it's reply id")
         print("[bold cyan]toot[/] - posts a status on mastodon")
         print("[bold cyan]user (username)[/] - view a user on mastodon")
-        print("[bold cyan]follow (username)[/] - follow a user on mastodon")
+        print("[bold cyan]follow (username) (?action '[view]')[/] - follows a user on mastodon + more")
         print("[bold cyan]quit[/] - exit out of MastoLine")
         print("[bold cyan]about[/] - find info about Mastoline")
 
