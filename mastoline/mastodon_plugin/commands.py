@@ -236,7 +236,7 @@ class Help:
         print("[bold cyan]reblog (id)[/] - reblogs a status from it's reply id")
         print("[bold cyan]toot[/] - posts a status on mastodon")
         print("[bold cyan]user (username)[/] - view a user on mastodon")
-        print("[bold cyan]follow (username) (?action '[view]')[/] - follows a user on mastodon + more")
+        print("[bold cyan]follow (username) (?other-action options: view)[/] - follows a user on mastodon by defualt + more")
         print("[bold cyan]quit[/] - exit out of MastoLine")
         print("[bold cyan]about[/] - find info about Mastoline")
 
